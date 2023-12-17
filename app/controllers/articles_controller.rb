@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
   def show
     @last_articles = Article.order(created_at: :desc).limit(3)
     @article = policy_scope(Article).find(params[:id])
+    # Este policy_scope lo utilizamos con la gema pundit en article_policy
   end
 
   def edit
